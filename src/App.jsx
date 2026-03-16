@@ -4,10 +4,12 @@ import FormComponent from "./components/FormComponent";
 import { useState } from "react";
 import RobotoSerif from "./fonts/Roboto_Serif/RobotoSerif-VariableFont.ttf";
 import RobotoSerifBold from "./fonts/Roboto_Serif/static/RobotoSerif-Bold.ttf";
+import Roboto from "./fonts/Roboto/Roboto-VariableFont.ttf";
+import RobotoBold from "./fonts/Roboto/static/Roboto-Bold.ttf";
 
 Font.register({
   family: "Roboto",
-  src: "http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf",
+  fonts: [{ src: Roboto }, { src: RobotoBold, fontWeight: 700 }],
 });
 
 Font.register({
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
   client: {
     paddingLeft: 29,
     fontSize: 15,
-    fontWeight: "bold",
+    fontWeight: 700,
     fontFamily: "Roboto",
     color: "#02B5FF",
     marginBottom: 20,
