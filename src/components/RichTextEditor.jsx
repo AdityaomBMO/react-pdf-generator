@@ -21,7 +21,7 @@ const RichTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`px-3 py-1 text-sm rounded-md border 
+          className={`px-2 py-1 text-sm rounded-lg border-gray-300 border
           ${editor.isActive("bold") ? "bg-blue-600 text-white" : "bg-white hover:bg-gray-100"}`}
         >
           Bold
@@ -30,7 +30,7 @@ const RichTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`px-3 py-1 text-sm rounded-md border 
+          className={`px-2 py-1 text-sm rounded-lg border-gray-300 border
           ${editor.isActive("italic") ? "bg-blue-600 text-white" : "bg-white hover:bg-gray-100"}`}
         >
           Italic
@@ -41,7 +41,7 @@ const RichTextEditor = ({ value, onChange }) => {
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className="px-3 py-1 text-sm rounded-md border bg-white hover:bg-gray-100"
+          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
         >
           H1
         </button>
@@ -51,7 +51,7 @@ const RichTextEditor = ({ value, onChange }) => {
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className="px-3 py-1 text-sm rounded-md border bg-white hover:bg-gray-100"
+          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
         >
           H2
         </button>
@@ -59,7 +59,7 @@ const RichTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className="px-3 py-1 text-sm rounded-md border bg-white hover:bg-gray-100"
+          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
         >
           • List
         </button>
@@ -67,7 +67,7 @@ const RichTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className="px-3 py-1 text-sm rounded-md border bg-white hover:bg-gray-100"
+          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
         >
           1. List
         </button>
