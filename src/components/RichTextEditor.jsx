@@ -1,6 +1,8 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
+import { Toggle } from "@/components/ui/toggle";
+import { BoldIcon, ItalicIcon, ListIcon, ListOrderedIcon } from "lucide-react";
 import React from "react";
 
 const RichTextEditor = ({ value, onChange }) => {
@@ -18,64 +20,72 @@ const RichTextEditor = ({ value, onChange }) => {
     <div className="border border-gray-300 rounded-lg overflow-hidden shadow-sm">
       {/* Toolbar */}
       <div className="flex flex-wrap gap-2 p-2 bg-gray-50 border-b border-gray-200">
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`px-2 py-1 text-sm rounded-lg border-gray-300 border
-          ${editor.isActive("bold") ? "bg-blue-600 text-white" : "bg-white hover:bg-gray-100"}`}
+        <Toggle
+          variant="outline"
+          aria-label="Toggle bold"
+          onPressedChange={() => editor.chain().focus().toggleBold().run()}
+          pressed={editor.isActive("bold")}
         >
-          Bold
-        </button>
+          <BoldIcon />
+        </Toggle>
 
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`px-2 py-1 text-sm rounded-lg border-gray-300 border
-          ${editor.isActive("italic") ? "bg-blue-600 text-white" : "bg-white hover:bg-gray-100"}`}
+        <Toggle
+          variant="outline"
+          aria-label="Toggle italic"
+          onPressedChange={() => editor.chain().focus().toggleItalic().run()}
+          pressed={editor.isActive("italic")}
         >
-          Italic
-        </button>
+          <ItalicIcon />
+        </Toggle>
 
-        <button
-          type="button"
-          onClick={() =>
+        <Toggle
+          variant="outline"
+          aria-label="Toggle heading 1"
+          onPressedChange={() =>
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
+          pressed={editor.isActive("heading", { level: 1 })}
         >
           H1
-        </button>
+        </Toggle>
 
-        <button
-          type="button"
-          onClick={() =>
+        <Toggle
+          variant="outline"
+          aria-label="Toggle heading 2"
+          onPressedChange={() =>
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
+          pressed={editor.isActive("heading", { level: 2 })}
         >
           H2
-        </button>
+        </Toggle>
 
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
+        <Toggle
+          variant="outline"
+          aria-label="Toggle bullet list"
+          onPressedChange={() =>
+            editor.chain().focus().toggleBulletList().run()
+          }
+          pressed={editor.isActive("bulletList")}
         >
-          • List
-        </button>
+          <ListIcon />
+        </Toggle>
 
-        <button
-          type="button"
-          onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className="px-2 py-1 text-sm rounded-lg border-gray-300 border bg-white hover:bg-gray-100"
+        <Toggle
+          variant="outline"
+          aria-label="Toggle ordered list"
+          onPressedChange={() =>
+            editor.chain().focus().toggleOrderedList().run()
+          }
+          pressed={editor.isActive("orderedList")}
         >
-          1. List
-        </button>
+          <ListOrderedIcon />
+        </Toggle>
       </div>
 
       {/* Editor Area */}
-      <div className="p-4 min-h-[180px] bg-white prose max-w-none focus-within:ring-2 focus-within:ring-blue-500">
-        <EditorContent editor={editor} className="outline-none min-h-[150px]" />
+      <div className="p-4 min-h-45 bg-white prose max-w-none focus-within:ring-2 focus-within:ring-blue-500">
+        <EditorContent editor={editor} className="outline-none min-h-37.5" />
       </div>
     </div>
   );
